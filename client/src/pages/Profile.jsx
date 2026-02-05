@@ -9,7 +9,7 @@ function Profile() {
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
     name: user?.name || "",
-    mobile: user?.mobile || "",
+    email: user?.email || "",
   });
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -26,7 +26,7 @@ function Profile() {
       await api.put("/auth/profile", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setMessage("✓ Updated");
+      setMessage("Profile updated successfully!");
       setEditMode(false);
       setTimeout(() => setMessage(""), 3000);
     } catch (error) {
@@ -111,7 +111,7 @@ function Profile() {
               <button
                 onClick={() => {
                   if (editMode) {
-                    setFormData({ name: user.name, mobile: user.mobile || "" });
+                    setFormData({ name: user.name, email: user.email });
                   }
                   setEditMode(!editMode);
                 }}
@@ -146,14 +146,13 @@ function Profile() {
                 </div>
 
                 <div>
-                  <label className="block font-bold text-black mb-2">Mobile Number</label>
+                  <label className="block font-bold text-black mb-2">Email Address</label>
                   <input
-                    type="tel"
-                    value={formData.mobile}
+                    type="email"
+                    value={formData.email}
                     onChange={(e) =>
-                      setFormData({ ...formData, mobile: e.target.value })
+                      setFormData({ ...formData, email: e.target.value })
                     }
-                    placeholder="Enter your phone number"
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none font-semibold"
                   />
                 </div>
@@ -173,8 +172,8 @@ function Profile() {
                   <p className="text-xl font-black text-black">{user.name}</p>
                 </div>
                 <div className="pb-6 border-b-2 border-gray-200">
-                  <p className="text-xs font-bold text-gray-500 uppercase mb-2">Mobile Number</p>
-                  <p className="text-xl font-black text-black">{user.mobile || "Not provided"}</p>
+                  <p className="text-xs font-bold text-gray-500 uppercase mb-2">Email Address</p>
+                  <p className="text-xl font-black text-black">{user.email}</p>
                 </div>
                 <div>
                   <p className="text-xs font-bold text-gray-500 uppercase mb-2">Account Type</p>

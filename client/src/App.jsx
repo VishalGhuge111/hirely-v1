@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
@@ -19,18 +18,9 @@ import Contact from "./pages/Contact";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminJobDetails from "./pages/admin/AdminJobDetails";
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname]);
-  return null;
-}
-
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         

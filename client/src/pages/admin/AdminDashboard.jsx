@@ -156,14 +156,7 @@ function AdminDashboard() {
                   </div>
 
                   <p className="text-cyan-600 font-black text-sm mb-2">{job.company}</p>
-                  <p className="text-gray-700 font-semibold text-sm mb-4">
-                    <span className="inline-flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                      </svg>
-                      {job.location}
-                    </span>
-                  </p>
+                  <p className="text-gray-700 font-semibold text-sm mb-4">📍 {job.location}</p>
                   <p className="text-gray-600 text-sm line-clamp-2 mb-4">{job.description}</p>
 
                   <div className="pt-4 border-t-2 border-gray-200">
@@ -180,7 +173,7 @@ function AdminDashboard() {
         {/* Add Job Modal */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-screen md:max-h-[550px] overflow-y-auto flex flex-col">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-screen md:max-h-96 overflow-y-auto flex flex-col">
               {/* Modal Header */}
               <div className="sticky top-0 bg-gradient-to-r from-cyan-400 to-cyan-500 px-8 py-6 flex items-center justify-between border-b-3 border-black">
                 <h2 className="text-2xl font-black text-black">CREATE NEW JOB</h2>

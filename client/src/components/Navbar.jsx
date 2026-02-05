@@ -12,11 +12,14 @@ function Navbar() {
     logout();
     navigate("/login");
     setProfileMenuOpen(false);
-    setMobileMenuOpen(false);
   };
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
+  const handleGetStarted = () => {
+    if (user) {
+      navigate("/jobs");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -57,8 +60,22 @@ function Navbar() {
             </Link>
           </div>
 
-          {/* Right Side - Auth/Profile */}
+          {/* Right Side - Icons and Auth */}
           <div className="flex items-center gap-4">
+            {/* Phone Icon */}
+            <a href="tel:+919866776532" className="hidden sm:flex bg-yellow-400 hover:bg-yellow-500 text-black p-3 rounded-full border-2 border-black transition">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.67 16.29l-2.27-2.27c-.78-.78-2.05-.78-2.83 0l-1.06 1.06c-.78.78-2.05.78-2.83 0l-2.79-2.79c-.78-.78-.78-2.05 0-2.83l1.06-1.06c.78-.78.78-2.05 0-2.83L7.71 1.33c-.78-.78-2.05-.78-2.83 0L2.96 3.88C2.36 4.48 2.01 5.31 2.01 6.27c0 6.01 4.31 12.47 9.88 16.29.57.39 1.24.59 1.91.59s1.34-.2 1.91-.59l1.74-1.2c.78-.54 1.23-1.41 1.23-2.34 0-.93-.45-1.8-1.23-2.34z" />
+              </svg>
+            </a>
+
+            {/* WhatsApp Icon */}
+            <a href="https://wa.me/919866776532" target="_blank" rel="noopener noreferrer" className="hidden sm:flex bg-yellow-400 hover:bg-yellow-500 text-black p-3 rounded-full border-2 border-black transition">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-3.055 2.2-5.002 5.97-5.002 9.856 0 1.64.325 3.236.944 4.748l-1.112 4.061 4.342-1.086c1.387.754 2.95 1.154 4.659 1.154 5.502 0 9.995-4.486 9.995-9.986 0-2.657-.795-5.193-2.307-7.374-1.512-2.18-3.64-3.885-6.022-4.751z" />
+              </svg>
+            </a>
+
             {/* Auth Section */}
             {!user && (
               <div className="hidden sm:flex gap-3">
@@ -139,66 +156,30 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        {mobileMenuOpen && (
-          <div
-            className="fixed inset-0 lg:hidden z-30"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-        )}
-
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden pb-4 space-y-2 border-t-4 border-black relative z-40">
-            <Link
-              to="/"
-              onClick={closeMobileMenu}
-              className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition"
-            >
+          <div className="lg:hidden pb-4 space-y-2 border-t-4 border-black">
+            <Link to="/" className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition">
               HOME
             </Link>
-            <Link
-              to="/about"
-              onClick={closeMobileMenu}
-              className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition"
-            >
+            <Link to="/about" className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition">
               ABOUT
             </Link>
-            <a
-              href="/#services"
-              onClick={closeMobileMenu}
-              className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition"
-            >
+            <a href="/#services" className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition">
               SERVICES
             </a>
-            <Link
-              to="/jobs"
-              onClick={closeMobileMenu}
-              className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition"
-            >
+            <Link to="/jobs" className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition">
               JOBS
             </Link>
-            <Link
-              to="/contact"
-              onClick={closeMobileMenu}
-              className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition"
-            >
+            <Link to="/contact" className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition">
               CONTACT
             </Link>
             {!user && (
               <>
-                <Link
-                  to="/login"
-                  onClick={closeMobileMenu}
-                  className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition"
-                >
+                <Link to="/login" className="block px-4 py-2 text-black hover:bg-yellow-300 font-bold rounded-lg transition">
                   LOGIN
                 </Link>
-                <Link
-                  to="/register"
-                  onClick={closeMobileMenu}
-                  className="block px-4 py-2 bg-yellow-400 text-black font-bold rounded-lg border-2 border-black hover:bg-yellow-500 transition"
-                >
+                <Link to="/register" className="block px-4 py-2 bg-yellow-400 text-black font-bold rounded-lg border-2 border-black hover:bg-yellow-500 transition">
                   SIGN UP
                 </Link>
               </>

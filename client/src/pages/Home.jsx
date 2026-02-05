@@ -33,8 +33,8 @@ function Home() {
               <h1 className="text-4xl md:text-6xl font-black text-black mb-6 leading-tight">
                 HIRELY CONNECTS<br />TOP TALENT<br />AND BUSINESS<br />TOGETHER
               </h1>
-              <p className="text-lg md:text-xl text-gray-800 mb-8 max-w-lg font-semibold">
-                Hirely is a job and internship application management system designed to streamline recruitment. Organizations post jobs, candidates apply, and admins manage the entire workflow efficiently.
+              <p className="text-lg md:text-xl text-gray-800 mb-8 max-w-lg">
+                Find your perfect opportunity or discover exceptional talent. Hirely is your platform for meaningful career connections.
               </p>
               <Link
                 to={user ? "/jobs" : "/login"}
@@ -46,9 +46,7 @@ function Home() {
             <div className="hidden md:flex items-center justify-center">
               <div className="bg-yellow-400 rounded-3xl border-4 border-black p-8 h-96 w-96 flex items-center justify-center">
                 <div className="text-center">
-                  <svg className="w-24 h-24 text-black mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                  <div className="text-6xl mb-4">🚀</div>
                   <p className="font-bold text-black text-lg">Your Next Opportunity Awaits</p>
                 </div>
               </div>
@@ -70,32 +68,32 @@ function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: "users",
+                icon: "👥",
                 title: "Manpower",
                 description: "We understand client needs and deliver tailored recruitment solutions ensuring the right match."
               },
               {
-                icon: "userPlus",
+                icon: "👤➕",
                 title: "Recruitment",
                 description: "Supporting candidates and clients with a smooth hiring process for better outcomes."
               },
               {
-                icon: "briefcase",
+                icon: "👔",
                 title: "Executive Search",
                 description: "Connecting organizations with top leadership talent through our strong network."
               },
               {
-                icon: "handshake",
+                icon: "🤝",
                 title: "HR Consulting",
                 description: "Enhancing efficiency with consulting, training, and employee development services."
               },
               {
-                icon: "link",
+                icon: "🔗",
                 title: "RPO",
                 description: "Outsourcing recruitment processes with tailored solutions to meet business needs."
               },
               {
-                icon: "crown",
+                icon: "👑",
                 title: "Leadership Hiring",
                 description: "Expert team collaborating with firms to fulfill senior and leadership roles efficiently."
               }
@@ -104,16 +102,9 @@ function Home() {
                 key={idx}
                 className="bg-yellow-400 rounded-2xl border-4 border-black p-6 hover:shadow-xl transition transform hover:scale-105"
               >
-                <svg className="w-16 h-16 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {service.icon === "users" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 12H9m6 0a6 6 0 11-12 0 6 6 0 0112 0z" />}
-                  {service.icon === "userPlus" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />}
-                  {service.icon === "briefcase" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m11 0a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2m11 0V7a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m0 0a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2" />}
-                  {service.icon === "handshake" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1m2-1v2.5M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m0 0l2-1 2 1m-2-1v2.5M9 21v-5.5m0 0H3.75A1.75 1.75 0 012 14.25" />}
-                  {service.icon === "link" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.658 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />}
-                  {service.icon === "crown" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m6.364 1.636l-.707-.707M21 12h-1v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6H3m18 0h.01M4 12h16m-8 6v4m0-11v3m5.364-9.364l-.707.707M9 9h.01" />}
-                </svg>
+                <div className="text-5xl mb-4">{service.icon}</div>
                 <h3 className="text-2xl font-black text-black mb-3">{service.title}</h3>
-                <p className="text-gray-800 font-medium">{service.description}</p>
+                <p className="text-gray-800 font-semibold">{service.description}</p>
               </div>
             ))}
           </div>
@@ -130,29 +121,21 @@ function Home() {
       </section>
 
       {/* Why Choose Hirely */}
-      <section className="bg-gradient-to-r from-cyan-400 to-cyan-500 py-20 md:py-32 relative">
+      <section className="bg-gradient-to-r from-cyan-400 to-cyan-500 py-20 md:py-32">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-block bg-lime-400 text-black font-bold px-6 py-3 rounded-full border-2 border-black mb-8">
             WHY CHOOSE HIRELY
           </div>
 
-          <div className="absolute left-8 top-1/2 transform -translate-y-1/2">
-            <svg className="w-12 h-12 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          </div>
-          <div className="absolute right-8 top-1/2 transform -translate-y-1/2">
-            <svg className="w-12 h-12 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          </div>
+          <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-5xl">✨</div>
+          <div className="absolute right-8 top-1/2 transform -translate-y-1/2 text-5xl">✨</div>
 
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8 max-w-2xl mx-auto leading-tight">
             At Hirely, we connect you with the right talent quickly and efficiently.
           </h2>
 
           <p className="text-lg text-gray-800 max-w-2xl mx-auto mb-8 leading-relaxed font-semibold">
-            Our centralized platform ensures every application is tracked efficiently. With simple workflows and transparent processes, organizations can manage recruitment seamlessly while candidates have a clear view of their application status. We make hiring simpler and more organized.
+            Our tailored solutions ensure every hire is the perfect fit for your business needs. Backed by proven expertise and a vast professional network, we consistently deliver exceptional results. We are your trusted partner in building strong, high-performing teams.
           </p>
 
           <Link
