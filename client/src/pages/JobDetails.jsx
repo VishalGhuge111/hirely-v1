@@ -70,10 +70,10 @@ function JobDetails() {
         }
       );
 
-      setSuccess("Application submitted successfully!");
+      setSuccess("✓ Application Submitted Successfully!");
       setResumeLink("");
       setTimeout(() => {
-        navigate("/dashboard");
+        setHasApplied(true);
       }, 2000);
     } catch (error) {
       setError(error.response?.data?.message || "Failed to submit application");
@@ -179,6 +179,13 @@ function JobDetails() {
           )}
         </div>
 
+        {/* Success Message */}
+        {success && (
+          <div className="mb-6 p-4 bg-lime-100 border-2 border-lime-400 text-lime-800 rounded-lg font-bold text-center">
+            ✓ {success}
+          </div>
+        )}
+
         {!job.isActive ? (
           <div className="bg-gray-50 rounded-xl p-8 text-center">
             <p className="text-gray-600">This job position is currently closed.</p>
@@ -253,7 +260,7 @@ function JobDetails() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-500 hover:to-cyan-600 disabled:bg-gray-400 text-black font-black py-3 px-4 rounded-lg border-2 border-black transition"
+                className="w-full sticky bottom-0 bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-500 hover:to-cyan-600 disabled:bg-gray-400 text-black font-black py-3 px-4 rounded-lg border-2 border-black transition"
               >
                 {submitting ? "SUBMITTING..." : "SUBMIT APPLICATION"}
               </button>

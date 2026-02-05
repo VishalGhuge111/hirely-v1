@@ -42,16 +42,16 @@ function Jobs() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-y-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-cyan-400 to-cyan-500 sticky top-0 z-10 border-b-4 border-black">
+      <div className="bg-gradient-to-r from-cyan-400 to-cyan-500 sticky top-20 z-10 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <h1 className="text-5xl font-black text-black mb-2">ALL OPPORTUNITIES</h1>
           <p className="text-gray-800 font-semibold text-lg">Discover {jobs.length} amazing jobs and internships</p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-y-auto">
         {/* Filter */}
         <div className="flex flex-wrap gap-3 mb-8">
           <button
@@ -102,7 +102,7 @@ function Jobs() {
               <Link
                 key={job._id}
                 to={`/jobs/${job._id}`}
-                className="bg-white rounded-2xl border-3 border-black shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group transform hover:scale-105"
+                className="bg-white rounded-2xl border-3 border-cyan-400 shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group transform hover:scale-105"
               >
                 <div className="p-6 h-full flex flex-col">
                   {/* Header with icon */}
@@ -127,7 +127,9 @@ function Jobs() {
                   <p className="text-sm text-cyan-600 font-black mb-3">{job.company}</p>
 
                   <div className="flex items-center gap-2 text-gray-700 text-sm mb-4 font-semibold">
-                    <span>📍</span>
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
                     {job.location}
                   </div>
 
