@@ -55,7 +55,7 @@ function JobDetails() {
       setSuccess("Application submitted successfully!");
       setResumeLink("");
       setTimeout(() => {
-        navigate("/dashboard/user");
+        navigate("/dashboard");
       }, 2000);
     } catch (error) {
       setError(error.response?.data?.message || "Failed to submit application");
@@ -100,26 +100,65 @@ function JobDetails() {
 
         <div className="bg-white rounded-xl shadow-md p-8 mb-8">
           <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{job.title}</h1>
-            <p className="text-xl text-indigo-600 font-semibold mb-4">{job.company}</p>
-            <div className="flex gap-4 text-sm text-gray-600">
-              <span>📍 {job.location}</span>
-              <span className={`px-3 py-1 rounded-full font-medium ${
-                job.isActive
-                  ? "bg-emerald-100 text-emerald-700"
-                  : "bg-gray-100 text-gray-700"
-              }`}>
-                {job.isActive ? "Active" : "Closed"}
-              </span>
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">{job.title}</h1>
+                <p className="text-xl text-indigo-600 font-semibold mb-4">{job.company}</p>
+              </div>
+              <div className="flex flex-col gap-2 text-right">
+                <span className={`px-4 py-2 rounded-full font-medium text-sm whitespace-nowrap ${
+                  job.isActive
+                    ? "bg-emerald-100 text-emerald-700"
+                    : "bg-gray-100 text-gray-700"
+                }`}>
+                  {job.isActive ? "Active" : "Closed"}
+                </span>
+                {job.type && (
+                  <span className={`px-4 py-2 rounded-full font-medium text-sm whitespace-nowrap ${
+                    job.type === "Internship"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-emerald-100 text-emerald-700"
+                  }`}>
+                    {job.type}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-6 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                {job.location}
+              </div>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">About this role</h2>
-            <div className="prose prose-sm text-gray-600 whitespace-pre-wrap">
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              About this role
+            </h2>
+            <div className="text-gray-600 whitespace-pre-wrap mb-8">
               {job.description}
             </div>
           </div>
+
+          {job.requirements && (
+            <div className="border-t border-gray-200 pt-6">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+                Requirements
+              </h2>
+              <div className="text-gray-600 whitespace-pre-wrap">
+                {job.requirements}
+              </div>
+            </div>
+          )}
         </div>
 
         {!job.isActive ? (

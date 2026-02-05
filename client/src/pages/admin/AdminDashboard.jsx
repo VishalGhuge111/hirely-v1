@@ -16,6 +16,8 @@ function AdminDashboard() {
     company: "",
     description: "",
     location: "",
+    type: "Full-time",
+    requirements: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -54,7 +56,7 @@ function AdminDashboard() {
         headers: { Authorization: `Bearer ${token}` }
       });
 
-      setFormData({ title: "", company: "", description: "", location: "" });
+      setFormData({ title: "", company: "", description: "", location: "", type: "Full-time", requirements: "" });
       setShowModal(false);
       await fetchJobs();
     } catch (error) {
@@ -225,6 +227,21 @@ function AdminDashboard() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Job Type
+                  </label>
+                  <select
+                    value={formData.type}
+                    onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
+                  >
+                    <option value="Full-time">Full-time</option>
+                    <option value="Internship">Internship</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
                     Description
                   </label>
                   <textarea
@@ -233,6 +250,20 @@ function AdminDashboard() {
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     required
                     rows="4"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition resize-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Requirements
+                  </label>
+                  <textarea
+                    placeholder="Required skills and qualifications..."
+                    value={formData.requirements}
+                    onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
+                    required
+                    rows="3"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition resize-none"
                   />
                 </div>
