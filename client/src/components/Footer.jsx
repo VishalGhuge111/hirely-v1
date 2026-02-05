@@ -2,114 +2,103 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold text-white">Hirely</span>
+    <footer className="bg-gradient-to-b from-slate-900 to-black text-white mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-12">
+          {/* Brand Section */}
+          <div className="bg-gray-100 rounded-2xl border-2 border-gray-300 p-8">
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <div className="bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl px-2 py-1 border-2 border-black">
+                <span className="text-white font-bold">H</span>
+              </div>
+              <div>
+                <div className="font-black text-black text-sm">HIRELY</div>
+                <div className="text-xs text-gray-700 font-semibold">HIRE EARLY</div>
+              </div>
             </Link>
-            <p className="text-sm text-gray-400">
-              Connect top talent with amazing opportunities. Build your career or find your next great hire.
+            <p className="text-gray-700 text-sm leading-relaxed">
+              Unlock your brand's true potential with innovative digital strategies that drive results. At our digital agency, we specialize in everything from creative design to targeted marketing campaigns.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+          {/* Navigation Links */}
+          <div className="bg-gray-100 rounded-2xl border-2 border-gray-300 p-8">
+            <h4 className="text-black font-bold text-lg mb-6 underline underline-offset-4">Navigation</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/" className="hover:text-indigo-400 transition">
-                  Home
+                <Link to="/" className="text-gray-700 hover:text-cyan-600 transition font-semibold">
+                  Home →
                 </Link>
               </li>
               <li>
-                <Link to="/jobs" className="hover:text-indigo-400 transition">
-                  Browse Jobs
+                <Link to="/jobs" className="text-gray-700 hover:text-cyan-600 transition font-semibold">
+                  Jobs →
                 </Link>
               </li>
               <li>
-                <Link to="/register" className="hover:text-indigo-400 transition">
-                  Sign Up
+                <Link to="/contact" className="text-red-600 hover:text-red-800 transition font-semibold">
+                  Contact →
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#about" className="hover:text-indigo-400 transition">
-                  About Us
+          {/* Contact Section */}
+          <div className="bg-gray-100 rounded-2xl border-2 border-gray-300 p-8">
+            <h4 className="text-black font-bold text-lg mb-6">Contact Details</h4>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.67 16.29l-2.27-2.27c-.78-.78-2.05-.78-2.83 0l-1.06 1.06c-.78.78-2.05.78-2.83 0l-2.79-2.79c-.78-.78-.78-2.05 0-2.83l1.06-1.06c.78-.78.78-2.05 0-2.83L7.71 1.33c-.78-.78-2.05-.78-2.83 0L2.96 3.88C2.36 4.48 2.01 5.31 2.01 6.27c0 6.01 4.31 12.47 9.88 16.29.57.39 1.24.59 1.91.59s1.34-.2 1.91-.59l1.74-1.2c.78-.54 1.23-1.41 1.23-2.34 0-.93-.45-1.8-1.23-2.34z" />
+                </svg>
+                <a href="tel:+919866776532" className="text-gray-700 hover:text-cyan-600 transition font-semibold">
+                  +91 9866776532
                 </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-indigo-400 transition">
-                  Contact
+              </div>
+              <div className="flex items-center gap-3">
+                <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                <a href="mailto:hirelyjobs@outlook.com" className="text-gray-700 hover:text-cyan-600 transition font-semibold">
+                  hirelyjobs@outlook.com
                 </a>
-              </li>
-              <li>
-                <a href="#privacy" className="hover:text-indigo-400 transition">
-                  Privacy Policy
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Get In Touch</h4>
-            <div className="space-y-2 text-sm">
-              <p>📧 support@hirely.com</p>
-              <p>📞 +1 (555) 123-4567</p>
-              <div className="flex gap-4 mt-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                </a>
+              </div>
+              <div className="flex items-start gap-3 pt-4 border-t border-gray-300">
+                <svg className="w-6 h-6 text-black flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
+                </svg>
+                <div className="text-gray-700 text-sm">
+                  <p className="font-semibold">Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400">
-              © 2024 Hirely. All rights reserved.
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm font-semibold">
+              © 2025. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm mt-4 md:mt-0">
-              <a href="#" className="hover:text-indigo-400 transition">
-                Privacy
+            <div className="flex items-center gap-4">
+              <a
+                href="https://wa.me/919866776532"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-yellow-400 rounded-lg border-2 border-black flex items-center justify-center hover:shadow-lg transition"
+              >
+                <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-3.055 2.2-5.002 5.97-5.002 9.856 0 1.64.325 3.236.944 4.748l-1.112 4.061 4.342-1.086c1.387.754 2.95 1.154 4.659 1.154 5.502 0 9.995-4.486 9.995-9.986 0-2.657-.795-5.193-2.307-7.374-1.512-2.18-3.64-3.885-6.022-4.751z" />
+                </svg>
               </a>
-              <a href="#" className="hover:text-indigo-400 transition">
-                Terms
-              </a>
-              <a href="#" className="hover:text-indigo-400 transition">
-                Cookies
+              <a
+                href="tel:+919866776532"
+                className="w-10 h-10 bg-yellow-400 rounded-lg border-2 border-black flex items-center justify-center hover:shadow-lg transition"
+              >
+                <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.67 16.29l-2.27-2.27c-.78-.78-2.05-.78-2.83 0l-1.06 1.06c-.78.78-2.05.78-2.83 0l-2.79-2.79c-.78-.78-.78-2.05 0-2.83l1.06-1.06c.78-.78.78-2.05 0-2.83L7.71 1.33c-.78-.78-2.05-.78-2.83 0L2.96 3.88C2.36 4.48 2.01 5.31 2.01 6.27c0 6.01 4.31 12.47 9.88 16.29.57.39 1.24.59 1.91.59s1.34-.2 1.91-.59l1.74-1.2c.78-.54 1.23-1.41 1.23-2.34 0-.93-.45-1.8-1.23-2.34z" />
+                </svg>
               </a>
             </div>
           </div>

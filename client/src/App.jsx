@@ -12,6 +12,8 @@ import Jobs from "./pages/Jobs";
 import JobDetails from "./pages/JobDetails";
 import UserDashboard from "./pages/UserDashboard";
 import Profile from "./pages/Profile";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminJobDetails from "./pages/admin/AdminJobDetails";
@@ -25,6 +27,8 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/jobs" element={<Jobs />} />

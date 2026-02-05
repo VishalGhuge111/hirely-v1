@@ -11,7 +11,7 @@ function Register() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { user } = useContext(AuthContext);
+  const { user, login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,16 +27,24 @@ function Register() {
     setLoading(true);
 
     try {
+      // Register user
       await api.post("/auth/register", {
         name,
         email,
         password,
       });
 
-      setSuccess("Account created successfully! Redirecting to login...");
+      // Auto-login after registration
+      const loginRes = await api.post("/auth/login", {
+        email,
+        password,
+      });
+
+      login(loginRes.data);
+      setSuccess("Account created! Redirecting to profile...");
       setTimeout(() => {
-        navigate("/login");
-      }, 2000);
+        navigate("/profile");
+      }, 1500);
     } catch (error) {
       setError(error.response?.data?.message || "Registration failed. Please try again.");
     } finally {

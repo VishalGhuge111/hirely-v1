@@ -14,11 +14,7 @@ function Login() {
 
   useEffect(() => {
     if (user) {
-      if (user.role === "admin") {
-        navigate("/admin/dashboard");
-      } else {
-        navigate("/dashboard/user");
-      }
+      navigate("/");
     }
   }, [user, navigate]);
 
@@ -34,12 +30,7 @@ function Login() {
       });
 
       login(res.data);
-
-      if (res.data.user.role === "admin") {
-        navigate("/admin/dashboard");
-      } else {
-        navigate("/dashboard/user");
-      }
+      navigate("/");
     } catch (error) {
       setError(error.response?.data?.message || "Login failed. Please try again.");
     } finally {
